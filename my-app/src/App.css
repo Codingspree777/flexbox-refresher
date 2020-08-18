@@ -19,7 +19,26 @@
 }
 
 .bar-container {
+  display: flex;
   height: 500px;
   width: 1000px;
   border-style: solid;
+  align-items: flex-end;
+}
+
+.bar-legend {
+  padding: 40px;
+  transform: rotate(270deg)
+}
+
+
+.bar-data {
+  width: 50px;
+  background-color: rgb(216,31,77);
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.legend-container {
+  display: flex;
 }
