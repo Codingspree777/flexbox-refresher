@@ -21,24 +21,41 @@
 .bar-container {
   display: flex;
   height: 500px;
-  width: 1000px;
+  width: 800px;
   border-style: solid;
   align-items: flex-end;
+  justify-content: center;
 }
-
-.bar-legend {
-  padding: 40px;
-  transform: rotate(270deg)
-}
-
 
 .bar-data {
   width: 50px;
   background-color: rgb(216,31,77);
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .legend-container {
   display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
+
+.bar-legend {
+  transform: rotate(270deg);
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.box:hover .show{
+  visibility: visible;
+}
+
+.show {
+  visibility: hidden;
+  position: absolute;
+  height: 30px;
+  width: 70px;
+  border-style: solid;
+}
+
+
