@@ -26,3 +26,20 @@ export const Bar = styled.div`
   width: 46px;
   height: ${props => `${props.dataHeight}px`};
 `
+export const LegendContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 470px;
+  height: 90px;
+`
+
+export const Products = styled.div`
+  display: flex;
+  width: 46px;
+`
+export const Text = styled.div`
+ display:flex;
+ align-items: center;
+ transform: rotate(-90deg);
+ padding-bottom: 20px;
+`

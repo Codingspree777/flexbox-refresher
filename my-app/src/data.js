@@ -1,19 +1,19 @@
 export const testData = [
-    {name: 'Product 1',
+    {name: 'product1',
     quantity: 70},
 
-    {name:'Product 2',
+    {name:'product2',
     quantity: 110},
 
-    {name:'Product 3',
+    {name:'product3',
     quantity: 235},
 
-    {name:'Product 4',
+    {name:'product4',
     quantity: 220},
 
-    {name:'Product 5',
+    {name:'product5',
     quantity: 150},
 
-    {name:'Product 6',
+    {name:'product6',
     quantity: 120}
 ]
