@@ -1,31 +1,42 @@
 import React from 'react';
 import { testData } from './data';
-import './App.css';
+import {
+  Main,
+  Header,
+  OuterContainer,
+  BarContainer,
+  Bar,
+  LegendContainer,
+  Products,
+  Text,
+  ToolTip
+} from './reuseableStyleComp';
 
 function App() {
-  const barLegend = testData.map((ele)=>{
+  const Bars = testData.map((ele, index) => {
+    return <Bar dataHeight={ele.quantity} key={index}>
+      <ToolTip> {`qty ${ele.quantity}`}</ToolTip>
+    </Bar>;
+  });
+
+  const Product = testData.map(ele => {
     return (
-      <div className='bar-legend'>{ele.name}</div>
-    )
-  })
-  const barData = testData.map((ele)=>{
-    console.log(ele.quantity)
-    return (
-        <div className="bar-data" style={{height: ele.quantity}}/>
-    )
-  })
+      <Products key={ele.name}>
+        <Text>{ele.name}</Text>
+      </Products>
+    );
+  });
+
   return (
-    <div className='App'>
-      <h1>My Bar</h1>
-      <div className='main-container'>
-        <div className='bar-container'>
-        {barData}
-        </div>
-      </div>
-      <div className='legend-container'>
-      {barLegend}
-      </div>
-    </div>
+    <Main>
+      <Header>My Bar</Header>
+      <OuterContainer>
+        <BarContainer>{Bars}</BarContainer>
+      </OuterContainer>
+      <OuterContainer>
+        <LegendContainer>{Product}</LegendContainer>
+      </OuterContainer>
+    </Main>
   );
 }
 
