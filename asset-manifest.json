@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/flexbox-refresher/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/flexbox-refresher/static/js/main.e789a20a.chunk.js",
+    "main.js.map": "/flexbox-refresher/static/js/main.e789a20a.chunk.js.map",
+    "runtime-main.js": "/flexbox-refresher/static/js/runtime-main.bf4770f2.js",
+    "runtime-main.js.map": "/flexbox-refresher/static/js/runtime-main.bf4770f2.js.map",
+    "static/js/2.5ac481d0.chunk.js": "/flexbox-refresher/static/js/2.5ac481d0.chunk.js",
+    "static/js/2.5ac481d0.chunk.js.map": "/flexbox-refresher/static/js/2.5ac481d0.chunk.js.map",
+    "index.html": "/flexbox-refresher/index.html",
+    "precache-manifest.4af6936eaa1b7c6c7f79ea536375d221.js": "/flexbox-refresher/precache-manifest.4af6936eaa1b7c6c7f79ea536375d221.js",
+    "service-worker.js": "/flexbox-refresher/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/flexbox-refresher/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.5ac481d0.chunk.js.LICENSE.txt": "/flexbox-refresher/static/js/2.5ac481d0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf4770f2.js",
+    "static/js/2.5ac481d0.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.e789a20a.chunk.js"
+  ]
+}
