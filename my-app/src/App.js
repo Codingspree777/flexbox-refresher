@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { testData } from './data';
 import {
   Main,
   Header,
@@ -9,11 +8,13 @@ import {
   LegendContainer,
   Toppings,
   Text,
+  ToolTipContainer,
   ToolTip
 } from './reuseableStyleComp';
 
 function App() {
   const [sortedToppings, setSortToppings] = useState();
+  const [top20, setTop20] = useState();
 
   useEffect(() => {
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/',
@@ -29,47 +30,54 @@ function App() {
 
   const setPizzaOrders = pizzaOrders => {
     if (pizzaOrders) {
-      const tallyToppings = new Map();
-
-      pizzaOrders.forEach(ele => {
-        if (!tallyToppings.has(ele)) {
-          tallyToppings.set(ele, 1);
-        } else {
-          tallyToppings.set(ele, tallyToppings.get(ele) + 1);
+      const tallyToppings = pizzaOrders.reduce((temp, key) => {
+        if (!temp[key.toppings]) {
+          temp[key.toppings] = 0;
         }
-      });
+        temp[key.toppings]++;
+        return temp;
+      }, {});
       setSortToppings(tallyToppings);
+      
+      const getTop20 = Object.values(tallyToppings)
+      .sort((a, b) => b - a)
+      .slice(0, 20);
+      setTop20(getTop20)
     }
+ 
   };
 
-  if(sortedToppings) {
-    console.log(sortedToppings)
+  let Bars;
+  if (top20) {
+    Bars = top20.map((ele, index) => {
+      return (
+        <Bar dataHeight={ele / 10} key={index}>
+            <ToolTip> {`qty ${ele}`}</ToolTip>
+        </Bar>
+      );
+    });
   }
 
-  const Bars = testData.map((ele, index) => {
-    return (
-      <Bar dataHeight={ele.quantity} key={index}>
-        <ToolTip> {`qty ${ele.quantit}`}</ToolTip>
-      </Bar>
-    );
-  });
-
-  const Product = testData.map(ele => {
-    return (
-      <Toppings key={ele.name}>
-        <Text>{ele.name}</Text>
-      </Toppings>
-    );
-  });
+  let Product;
+  if (top20) {
+    Product = top20.map(ele => {
+      const key = Object.keys(sortedToppings).find(key => sortedToppings[key] === ele);
+      return (
+        <Toppings key={ele}>
+         <Text>
+         {key}
+         </Text>
+        </Toppings>
+      );
+    });
+  }
 
   return (
     <Main>
       <Header>My Bar</Header>
       <OuterContainer>
-        <BarContainer>{Bars}</BarContainer>
-      </OuterContainer>
-      <OuterContainer>
         <LegendContainer>{Product}</LegendContainer>
+        <BarContainer>{Bars}</BarContainer>
       </OuterContainer>
     </Main>
   );

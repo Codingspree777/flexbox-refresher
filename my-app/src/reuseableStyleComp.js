@@ -9,23 +9,22 @@ export const Header = styled.h1`
 
 export const OuterContainer = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
 `;
 export const BarContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  align-items: flex-end;
   border-style: solid;
-  height: 300px;
-  width: 470px;
+  height: 1000px;
+  width: 1200px;
 `;
 
-
-export const ToolTip = styled.span`
+export const ToolTip = styled.div`
   visibility: hidden;
   position: absolute;
   background-color: rgb(240, 248, 249);
-  margin-left: 50px;
   width: 91px;
   height: 30px;
   border: 1px solid black;
@@ -38,28 +37,29 @@ export const ToolTip = styled.span`
 export const Bar = styled.div`
   &:hover ${ToolTip} {
     visibility: visible;
-    transition-delay: .5s;
+    transition-delay: 0.5s;
   }
+  display: flex;
+  justify-content: flex-end;
   background-color: rgb(208, 22, 65);
-  width: 46px;
-  height: ${props => `${props.dataHeight}px`};
+  width: ${props => `${props.dataHeight}px`};
+  height: 46px;
 `;
 export const LegendContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  width: 470px;
-  height: 90px;
+  width: 300px;
+  height: 1000px;
+  border-style: solid;
 `;
 
-
 export const Toppings = styled.div`
-  display: flex;
-  width: 46px;
 `;
 
 export const Text = styled.div`
-  display: flex;
-  align-items: center;
-  transform: rotate(-90deg);
-  padding-bottom: 20px;
+ float: right;
+ padding-right: 10px;
+ white-space: nowrap;
+ height: 40px;
 `;
