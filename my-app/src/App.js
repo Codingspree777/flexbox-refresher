@@ -72,7 +72,7 @@ function App() {
 
   return (
     <Main>
-      <Header>My Bar</Header>
+      <Header>Top 20 Pizza Toppings Orders</Header>
       <OuterContainer>
         <LegendContainer>{Product}</LegendContainer>
         <BarContainer>{Bars}</BarContainer>
