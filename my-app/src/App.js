@@ -8,7 +8,6 @@ import {
   LegendContainer,
   Toppings,
   Text,
-  ToolTipContainer,
   ToolTip
 } from './reuseableStyleComp';
 

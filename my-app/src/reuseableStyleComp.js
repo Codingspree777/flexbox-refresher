@@ -57,7 +57,9 @@ export const LegendContainer = styled.div`
 export const Toppings = styled.div``;
 
 export const Text = styled.div`
-  float: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   padding-right: 10px;
   white-space: nowrap;
   height: 40px;
