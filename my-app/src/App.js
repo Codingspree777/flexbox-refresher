@@ -51,7 +51,7 @@ function App() {
     Bars = top20.map((ele, index) => {
       return (
         <Bar dataHeight={ele / 10} key={index}>
-          <ToolTip> {`qty ${ele}`}</ToolTip>
+          <ToolTip> {`${ele} orders`}</ToolTip>
         </Bar>
       );
     });
