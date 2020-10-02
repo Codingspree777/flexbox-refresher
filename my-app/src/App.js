@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { testData } from './data';
 import {
   Main,
@@ -13,25 +13,45 @@ import {
 } from './reuseableStyleComp';
 
 function App() {
-  
-  const [pizzaOrders, setPizzaOrders] = useState();
+  const [sortedToppings, setSortToppings] = useState();
 
-  useEffect(()=>{
+  useEffect(() => {
+    let proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+      targetUrl = 'https://www.olo.com/pizzas.json';
     const fetchData = async () => {
-      await fetch('https://www.olo.com/pizzas.json')
+      await fetch(proxyUrl + targetUrl)
         .then(response => response.json())
-        .then(data => {
-          setPizzaOrders(data)
-        })
+        .then(data => setPizzaOrders(data))
         .catch(error => alert(error));
     };
     fetchData();
-  }, [])
-  console.log(pizzaOrders)
+  }, []);
+
+  const setPizzaOrders = pizzaOrders => {
+    if (pizzaOrders) {
+      const tallyToppings = new Map();
+
+      pizzaOrders.forEach(ele => {
+        if (!tallyToppings.has(ele)) {
+          tallyToppings.set(ele, 1);
+        } else {
+          tallyToppings.set(ele, tallyToppings.get(ele) + 1);
+        }
+      });
+      setSortToppings(tallyToppings);
+    }
+  };
+
+  if(sortedToppings) {
+    console.log(sortedToppings)
+  }
+
   const Bars = testData.map((ele, index) => {
-    return <Bar dataHeight={ele.quantity} key={index}>
-      <ToolTip> {`qty ${ele.quantity}`}</ToolTip>
-    </Bar>;
+    return (
+      <Bar dataHeight={ele.quantity} key={index}>
+        <ToolTip> {`qty ${ele.quantit}`}</ToolTip>
+      </Bar>
+    );
   });
 
   const Product = testData.map(ele => {

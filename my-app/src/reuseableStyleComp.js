@@ -16,8 +16,8 @@ export const BarContainer = styled.div`
   justify-content: space-evenly;
   align-items: flex-end;
   border-style: solid;
+  height: 300px;
   width: 470px;
-  height: 263px;
 `;
 
 
