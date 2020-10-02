@@ -54,12 +54,11 @@ export const LegendContainer = styled.div`
   border-style: solid;
 `;
 
-export const Toppings = styled.div`
-`;
+export const Toppings = styled.div``;
 
 export const Text = styled.div`
- float: right;
- padding-right: 10px;
- white-space: nowrap;
- height: 40px;
+  float: right;
+  padding-right: 10px;
+  white-space: nowrap;
+  height: 40px;
 `;

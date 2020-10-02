@@ -38,13 +38,12 @@ function App() {
         return temp;
       }, {});
       setSortToppings(tallyToppings);
-      
+
       const getTop20 = Object.values(tallyToppings)
-      .sort((a, b) => b - a)
-      .slice(0, 20);
-      setTop20(getTop20)
+        .sort((a, b) => b - a)
+        .slice(0, 20);
+      setTop20(getTop20);
     }
- 
   };
 
   let Bars;
@@ -52,7 +51,7 @@ function App() {
     Bars = top20.map((ele, index) => {
       return (
         <Bar dataHeight={ele / 10} key={index}>
-            <ToolTip> {`qty ${ele}`}</ToolTip>
+          <ToolTip> {`qty ${ele}`}</ToolTip>
         </Bar>
       );
     });
@@ -61,12 +60,12 @@ function App() {
   let Product;
   if (top20) {
     Product = top20.map(ele => {
-      const key = Object.keys(sortedToppings).find(key => sortedToppings[key] === ele);
+      const key = Object.keys(sortedToppings).find(
+        key => sortedToppings[key] === ele
+      );
       return (
         <Toppings key={ele}>
-         <Text>
-         {key}
-         </Text>
+          <Text>{key}</Text>
         </Toppings>
       );
     });
