@@ -52,7 +52,7 @@ export const LegendContainer = styled.div`
 `;
 
 
-export const Products = styled.div`
+export const Toppings = styled.div`
   display: flex;
   width: 46px;
 `;

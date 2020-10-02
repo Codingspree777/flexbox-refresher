@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { testData } from './data';
 import {
   Main,
@@ -7,12 +7,27 @@ import {
   BarContainer,
   Bar,
   LegendContainer,
-  Products,
+  Toppings,
   Text,
   ToolTip
 } from './reuseableStyleComp';
 
 function App() {
+  
+  const [pizzaOrders, setPizzaOrders] = useState();
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      await fetch('https://www.olo.com/pizzas.json')
+        .then(response => response.json())
+        .then(data => {
+          setPizzaOrders(data)
+        })
+        .catch(error => alert(error));
+    };
+    fetchData();
+  }, [])
+  console.log(pizzaOrders)
   const Bars = testData.map((ele, index) => {
     return <Bar dataHeight={ele.quantity} key={index}>
       <ToolTip> {`qty ${ele.quantity}`}</ToolTip>
@@ -21,9 +36,9 @@ function App() {
 
   const Product = testData.map(ele => {
     return (
-      <Products key={ele.name}>
+      <Toppings key={ele.name}>
         <Text>{ele.name}</Text>
-      </Products>
+      </Toppings>
     );
   });
 
