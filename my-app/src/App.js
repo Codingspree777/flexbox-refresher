@@ -18,8 +18,8 @@ function App() {
   useEffect(() => {
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/',
       targetUrl = 'https://www.olo.com/pizzas.json';
-    const fetchData = async () => {
-      await fetch(proxyUrl + targetUrl)
+    const fetchData = () => {
+        fetch(proxyUrl + targetUrl)
         .then(response => response.json())
         .then(data => setPizzaOrders(data))
         .catch(error => alert(error));
@@ -49,7 +49,7 @@ function App() {
   if (top20) {
     Bars = top20.map((ele, index) => {
       return (
-        <Bar dataHeight={ele / 10} key={index}>
+        <Bar dataWidth={ele / 10} key={index}>
           <ToolTip> {`${ele} orders`}</ToolTip>
         </Bar>
       );

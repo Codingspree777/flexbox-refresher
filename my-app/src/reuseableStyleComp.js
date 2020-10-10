@@ -42,7 +42,7 @@ export const Bar = styled.div`
   display: flex;
   justify-content: flex-end;
   background-color: rgb(208, 22, 65);
-  width: ${props => `${props.dataHeight}px`};
+  width: ${props => `${props.dataWidth}px`};
   height: 46px;
 `;
 export const LegendContainer = styled.div`
