@@ -11,9 +11,11 @@ import {
   ToolTip
 } from './reuseableStyleComp';
 
+const initialState = [];
+
 function App() {
-  const [sortedToppings, setSortToppings] = useState();
-  const [top20, setTop20] = useState();
+  const [sortedToppings, setSortToppings] = useState(initialState);
+  const [top20, setTop20] = useState(initialState);
 
   useEffect(() => {
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/',
