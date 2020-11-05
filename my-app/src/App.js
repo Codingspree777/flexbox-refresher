@@ -18,10 +18,16 @@ function App() {
   const [top20, setTop20] = useState(initialState);
 
   useEffect(() => {
+    // const options = {
+    //   method: 'GET',
+    //   mode: 'no-cors',
+    //   'Content-Type': 'binary/octet-stream'
+    // };
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-      targetUrl = 'https://www.olo.com/pizzas.json';
+     targetUrl = 'https://www.olo.com/pizzas.json';
     const fetchData = () => {
         fetch(proxyUrl + targetUrl)
+        // fetch(targetUrl, options)
         .then(response => response.json())
         .then(data => setPizzaOrders(data))
         .catch(error => alert(error));
