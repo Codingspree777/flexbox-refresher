@@ -14,19 +14,13 @@ import {
 const initialState = [];
 
 function App() {
-  const [sortedToppings, setSortToppings] = useState(initialState);
   const [top20, setTop20] = useState(initialState);
 
   useEffect(() => {
-    // const options = {
-    //   method: 'GET',
-    //   mode: 'no-cors',
-    //   'Content-Type': 'binary/octet-stream'
-    // };
     let proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-     targetUrl = 'https://www.olo.com/pizzas.json';
+      targetUrl = 'https://www.olo.com/pizzas.json';
     const fetchData = () => {
-        fetch(proxyUrl + targetUrl)
+      fetch(proxyUrl + targetUrl)
         // fetch(targetUrl, options)
         .then(response => response.json())
         .then(data => setPizzaOrders(data))
@@ -44,21 +38,23 @@ function App() {
         temp[key.toppings]++;
         return temp;
       }, {});
-      setSortToppings(tallyToppings);
 
-      const getTop20 = Object.values(tallyToppings)
-        .sort((a, b) => b - a)
+      const getTop20 = Object.entries(tallyToppings)
+        .sort((a, b) => {
+          if (a[1] > b[1]) return -1;
+        })
         .slice(0, 20);
       setTop20(getTop20);
     }
+   
   };
-
+  
   let Bars;
   if (top20) {
     Bars = top20.map((ele, index) => {
       return (
-        <Bar dataWidth={ele / 10} key={index}>
-          <ToolTip> {`${ele} orders`}</ToolTip>
+        <Bar dataWidth={ele[1] / 10} key={index}>
+          <ToolTip> {`${ele[1]} orders`}</ToolTip>
         </Bar>
       );
     });
@@ -67,12 +63,9 @@ function App() {
   let Product;
   if (top20) {
     Product = top20.map(ele => {
-      const key = Object.keys(sortedToppings).find(
-        key => sortedToppings[key] === ele
-      );
       return (
         <Toppings key={ele}>
-          <Text>{key}</Text>
+          <Text>{ele[0]}</Text>
         </Toppings>
       );
     });
