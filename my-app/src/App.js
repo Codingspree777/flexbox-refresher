@@ -42,6 +42,8 @@ function App() {
       const getTop20 = Object.entries(tallyToppings)
         .sort((a, b) => {
           if (a[1] > b[1]) return -1;
+          if(a[1] < b[1]) return 1;
+          return 0;
         })
         .slice(0, 20);
       setTop20(getTop20);
